@@ -20,7 +20,7 @@ else:
 # Streamlit App
 st.title("Loan Approval Prediction App")
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3 = st.columns(3, gap = "medium")
 
 # User Inputs
 with col1:
