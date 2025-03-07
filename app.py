@@ -33,6 +33,29 @@ number_of_credit_inquiries = st.number_input("Number of Credit Inquiries", min_v
 bankruptcy_history = st.selectbox("Bankruptcy History (0 - NO, 1 - YES)", [0, 1])
 previous_loan_defaults = st.selectbox("Previous Loan Defaults (0 - NO, 1 - YES)", [0, 1])
 
+net_worth = st.number_input("Net Worth", min_value=0, value=10000)
+loan_amount = st.number_input("Loan Amount", min_value=0, value=5000)
+total_assets = st.number_input("Total Assets", min_value=0, value=50000)
+job_tenure = st.number_input("Job Tenure (years)", min_value=0, value=5)
+debt_to_income_ratio = st.number_input("Debt to Income Ratio", min_value=0.0, value=0.2)
+total_debt_to_income_ratio = st.number_input("Total Debt to Income Ratio", min_value=0.0, max_value=1.0, value=0.3)
+credit_card_utilization_rate = st.number_input("Credit Card Utilization Rate", min_value=0.0, max_value=1.0, value=0.5)
+utility_bills_payment_history = st.number_input("Utility Bills Payment History", min_value=0.0, max_value=1.0, value=0.8)
+total_liabilities = st.number_input("Total Liabilities", min_value=0, value=20000)
+experience = st.number_input("Experience (years)", min_value=0, value=10)
+savings_account_balance = st.number_input("Savings Account Balance", min_value=0, value=10000)
+monthly_income = st.number_input("Monthly Income", min_value=0.0, value=4000.0)
+monthly_loan_payment = st.number_input("Monthly Loan Payment", min_value=0.0, value=500.0)
+interest_rate = st.number_input("Interest Rate", min_value=0.0, max_value=1.0, value=0.05)
+credit_score = st.number_input("Credit Score", min_value=300, max_value=750, value=650)
+base_interest_rate = st.number_input("Base Interest Rate", min_value=0.0, max_value=1.0, value=0.03)
+payment_history = st.number_input("Payment History", min_value=0, value=5)
+age = st.number_input("Age", min_value=18, max_value=100, value=30)
+monthly_debt_payments = st.number_input("Monthly Debt Payments", min_value=0, value=1000)
+annual_income = st.number_input("Annual Income", min_value=0, value=50000)
+length_of_credit_history = st.number_input("Length of Credit History (years)", min_value=0, value=10)
+checking_account_balance = st.number_input("Checking Account Balance", min_value=0, value=5000)
+
 # Predict button
 if st.button("📊 Predict"):
     if loaded_pipeline is not None:
@@ -47,8 +70,31 @@ if st.button("📊 Predict"):
             "NumberOfCreditInquiries": [number_of_credit_inquiries],
             "BankruptcyHistory": [bankruptcy_history],
             "LoanPurpose": [loan_purpose],
-            "PreviousLoanDefaults": [previous_loan_defaults]
+            "PreviousLoanDefaults": [previous_loan_defaults],
+            "NetWorth": [net_worth],
+            "LoanAmount": [loan_amount],
+            "TotalAssets": [total_assets],
+            "JobTenure": [job_tenure],
+            "DebtToIncomeRatio": [debt_to_income_ratio],
+            "TotalDebtToIncomeRatio": [total_debt_to_income_ratio],
+            "CreditCardUtilizationRate": [credit_card_utilization_rate],
+            "UtilityBillsPaymentHistory": [utility_bills_payment_history],
+            "TotalLiabilities": [total_liabilities],
+            "Experience": [experience],
+            "SavingsAccountBalance": [savings_account_balance],
+            "MonthlyIncome": [monthly_income],
+            "MonthlyLoanPayment": [monthly_loan_payment],
+            "InterestRate": [interest_rate],
+            "CreditScore": [credit_score],
+            "BaseInterestRate": [base_interest_rate],
+            "PaymentHistory": [payment_history],
+            "Age": [age],
+            "MonthlyDebtPayments": [monthly_debt_payments],
+            "AnnualIncome": [annual_income],
+            "LengthOfCreditHistory": [length_of_credit_history],
+            "CheckingAccountBalance": [checking_account_balance]
         })
+
 
         st.write("🔎 Dữ liệu đầu vào:", input_data)
 
