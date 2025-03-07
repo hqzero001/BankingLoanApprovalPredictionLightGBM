@@ -3,6 +3,7 @@ import pandas as pd
 import os
 import joblib
 
+st.set_page_config(layout="wide")
 # Load trained model
 MODEL_PATH = 'trained_pipeline.pkl'
 loaded_pipeline = None
